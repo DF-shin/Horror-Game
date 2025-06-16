@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
 
-public class FPSController : MonoBehaviour
+public class HeroController : MonoBehaviour
 {
     [Header("player")]
     public float playerWalkingSpeed = 7.5f;
@@ -38,6 +39,8 @@ public class FPSController : MonoBehaviour
 
     void Update()
     {
+        float movementDirectionY = moveDirection.y;
+
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
 
@@ -52,12 +55,12 @@ public class FPSController : MonoBehaviour
         float curSpeedY = canMove ? (
             isRunning ? playerRunningSpeed : isCrouching ? playerCrouchSpeed : playerWalkingSpeed) * Input.GetAxis("Horizontal") : 0;
 
-        float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
         if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
         {
             moveDirection.y = playerJumpSpeed;
+            Debug.Log("Jumping");
         }
         else
         {
@@ -69,6 +72,7 @@ public class FPSController : MonoBehaviour
         {
             moveDirection.y -= playerGravity * Time.deltaTime;
         }
+
 
 
         characterController.Move(moveDirection * Time.deltaTime);
@@ -83,5 +87,7 @@ public class FPSController : MonoBehaviour
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * cameraLookSpeed, 0);
         }
     }
+
 }
+
 
