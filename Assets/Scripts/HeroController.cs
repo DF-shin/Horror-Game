@@ -24,12 +24,17 @@ public class HeroController : MonoBehaviour
     Vector3 moveDirection = Vector3.zero;
     float rotationx = 0;
 
+    Rigidbody heroRigidBody;
+    Animator myAnimator;
+
     [HideInInspector]
     public bool canMove = true;
 
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        myAnimator = GetComponent<Animator>();
+        heroRigidBody = GetComponent<Rigidbody>();
 
         // locks Cursor
         Cursor.lockState = CursorLockMode.Locked;
@@ -39,7 +44,10 @@ public class HeroController : MonoBehaviour
 
     void Update()
     {
+        heroOnGround();
+
         float movementDirectionY = moveDirection.y;
+        float curSpeedX = 0.0f;
 
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
@@ -49,7 +57,8 @@ public class HeroController : MonoBehaviour
 
 
         // Two long if statements to check if running or crouching. Can't think of a cleaner way, but this works.
-        float curSpeedX = canMove ? (
+
+        curSpeedX = canMove ? (
             isRunning ? playerRunningSpeed : isCrouching ? playerCrouchSpeed : playerWalkingSpeed) * Input.GetAxis("Vertical") : 0;
 
         float curSpeedY = canMove ? (
@@ -60,7 +69,7 @@ public class HeroController : MonoBehaviour
         if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
         {
             moveDirection.y = playerJumpSpeed;
-            Debug.Log("Jumping");
+            myAnimator.SetBool("IsJumping", true);
         }
         else
         {
@@ -71,9 +80,17 @@ public class HeroController : MonoBehaviour
         if (!characterController.isGrounded)
         {
             moveDirection.y -= playerGravity * Time.deltaTime;
+
         }
 
-
+        if (curSpeedX != 0 || curSpeedY != 0)
+        {
+            myAnimator.SetBool("IsMoving", true);
+        }
+        else
+        {
+            myAnimator.SetBool("IsMoving", false);
+        }
 
         characterController.Move(moveDirection * Time.deltaTime);
 
@@ -85,6 +102,15 @@ public class HeroController : MonoBehaviour
             playerCamera.transform.localRotation = Quaternion.Euler(rotationx, 0, 0);
 
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * cameraLookSpeed, 0);
+
+        }
+    }
+
+    void heroOnGround()
+    {
+        if (characterController.isGrounded)
+        {
+            myAnimator.SetBool("IsJumping", false);
         }
     }
 
