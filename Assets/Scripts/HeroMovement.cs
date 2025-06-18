@@ -9,6 +9,7 @@ public class HeroMovement : MonoBehaviour
     private float moveSpeed;
     public float walkSpeed;
     public float sprintSpeed;
+    public float tiptoeSpeed;
 
 
     public float groundDrag;
@@ -40,6 +41,7 @@ public class HeroMovement : MonoBehaviour
     {
         walking,
         sprinting,
+        tiptoe,
         air
     }
 
@@ -95,17 +97,26 @@ public class HeroMovement : MonoBehaviour
 
     private void StateHandler()
     {
+
+        //Mode - Tiptoe
+        if (grounded && Input.GetKey(KeyCode.LeftControl))
+        {
+            state = MovementState.tiptoe;
+            moveSpeed = tiptoeSpeed;
+        }
         //Mode - Sprinting
-        if (grounded && Input.GetKey(KeyCode.LeftShift))
+        else if (grounded && Input.GetKey(KeyCode.LeftShift))
         {
             state = MovementState.sprinting;
             moveSpeed = sprintSpeed;
         }
+        //Mode - Walking
         else if (grounded)
         {
             state = MovementState.walking;
             moveSpeed = walkSpeed;
         }
+        //Mode - Airborn
         else
         {
             state = MovementState.air;
