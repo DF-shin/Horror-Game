@@ -30,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 288918564002711027}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20, y: 0.94, z: 56.67}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -20, y: 0.94, z: 50.97}
+  m_LocalScale: {x: 1, y: 1, z: 0.67428}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1643157976160873009}
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 9946
+  m_VersionIndex: 9958
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -382,8 +382,8 @@ Transform:
   m_GameObject: {fileID: 1458026671656480875}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -15, y: 1.94, z: 56.67}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -15, y: 1.94, z: 50.97}
+  m_LocalScale: {x: 1, y: 1, z: 0.67428}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1643157976160873009}
@@ -600,7 +600,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1882
+  m_VersionIndex: 1894
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -734,8 +734,8 @@ Transform:
   m_GameObject: {fileID: 6537825015095458595}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -25, y: 1.94, z: 56.67}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -25, y: 1.94, z: 50.97}
+  m_LocalScale: {x: 1, y: 1, z: 0.67428}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1643157976160873009}
@@ -952,7 +952,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1882
+  m_VersionIndex: 1894
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1163,7 +1163,7 @@ PrefabInstance:
     - target: {fileID: 3501652805973566283, guid: a8540dfea1bccc543a1cf95e09057f86,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 665
+      value: 677
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1247,7 +1247,7 @@ PrefabInstance:
     - target: {fileID: 3501652805973566283, guid: a8540dfea1bccc543a1cf95e09057f86,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 668
+      value: 680
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
