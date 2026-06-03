@@ -271504,6 +271504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 20
+  camAnim: {fileID: 1855833561}
 --- !u!143 &1452783731
 CharacterController:
   m_ObjectHideFlags: 0
